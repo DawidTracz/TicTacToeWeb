@@ -1,4 +1,4 @@
-package com.example.ArtifactId;
+package com.example.ticTacToeWeb;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
