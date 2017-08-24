@@ -6,54 +6,55 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/core.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
-
-
-
 <div class="container board">
-
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><h1 th:text="${a}" ></h1>
-            </button>
+
+            <button id="test" class="btn btn-default" th:onclick="'alert(${a})'"/>
+
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">2</button>
+            <button type="button"  class="btn btn-default" />
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">3</button>
+            <button type="button" class="btn btn-default"/>
         </div>
     </div>
 </div>
 <div class="container board">
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">4</button>
+            <button type="button" class="btn btn-default"/>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">5</button>
+            <button type="button" class="btn btn-default"/>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">6</button>
+            <button type="button" class="btn btn-default"/>
         </div>
     </div>
 </div>
 <div class="container board">
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">7</button>
+            <button type="button" class="btn btn-default"/>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">8</button>
+            <button type="button" class="btn btn-default"/>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">9</button>
+            <button type="button" class="btn btn-default"/>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap-select/1.12.2/js/bootstrap-select.min.js}"></script>
+
 </body>
 </html>

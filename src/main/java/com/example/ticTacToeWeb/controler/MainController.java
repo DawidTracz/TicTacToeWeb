@@ -13,19 +13,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class MainController {
 
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String mainPage(Model model) {
 
-        boolean a = true;
-
-
-        if(a==true) {
-            model.addAttribute("a", "Hello Thymeleaf");
-        }
-
+            model.addAttribute("a", "X");
 
             return "index";
     }
-
 
 }
