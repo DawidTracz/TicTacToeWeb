@@ -1,5 +1,6 @@
 $(document).ready(function() {
-$("#test").click(function() {
-alert("test");
+$('.test').click(function() {
+$(this).text($(this).data("content"));
 });
 });
+

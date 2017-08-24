@@ -16,9 +16,12 @@ public class MainController {
     @GetMapping("/")
     public String mainPage(Model model) {
 
-            model.addAttribute("a", "X");
 
-            return "index";
+        boolean xFactor = true;
+
+        model.addAttribute("a", "X");
+
+        return "index";
     }
 
 }
