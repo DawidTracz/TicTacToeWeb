@@ -1,5 +1,6 @@
 package com.example.ticTacToeWeb.controler;
 
+import com.example.ticTacToeWeb.enums.TicTacEnum;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +17,6 @@ public class MainController {
     @GetMapping("/")
     public String mainPage(Model model) {
 
-
-        boolean xFactor = true;
-
-        model.addAttribute("a", "X");
 
         return "index";
     }
