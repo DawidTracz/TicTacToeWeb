@@ -1,14 +1,9 @@
 package com.example.ticTacToeWeb.controler;
 
-import com.example.ticTacToeWeb.enums.TicTacEnum;
+import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -16,9 +11,17 @@ public class MainController {
 
     @GetMapping("/")
     public String mainPage(Model model) {
-
-
         return "index";
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String createAccount(@RequestBody final TicTacModel ticTacModel) {
+        System.out.println("String = " + ticTacModel.getWinner());
+
+        return null;
+    }
 }
+
+
