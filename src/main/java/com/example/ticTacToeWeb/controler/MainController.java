@@ -17,7 +17,7 @@ public class MainController {
 
     @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String createAccount(@RequestBody final TicTacModel ticTacModel) {
+    public String sendWinningString(@RequestBody final TicTacModel ticTacModel) {
         System.out.println("String = " + ticTacModel.getWinner());
 
         return null;

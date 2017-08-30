@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var clickCount = 1;
-    $('.game').click(function() {
+    var model = { winner : XOToWin };
+    $('.game').click(function() {                   //After click on button function returns correct symbol in field
           var XOToWin="";
           clickCount++;
           var chr = clickCount%2 == 0 ? 'X' : 'O';
@@ -18,9 +19,11 @@ $(document).ready(function() {
         button.attr("data-col", index%3);
     });
 
+    $.post("/", model, function(data) {
+    alert('wyslano!');
+    });
 
-//    $.ajax({
-//
-//        }
-//    });
+
+
+
 });
