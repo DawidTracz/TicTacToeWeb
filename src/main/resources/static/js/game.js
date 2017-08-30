@@ -7,15 +7,22 @@ $(document).ready(function() {
           $(this).text(chr);
           $(this).attr("symbol", chr);
           $(this).text(chr).attr('disabled','disabled');
-                $('.game').each(function(index) {
-                var symbol = $(this).attr("symbol");
-                XOToWin += (symbol == 'X' || symbol == 'O') ? symbol : ' ';
-                });
-        console.log(XOToWin);
-        var model = { winner : XOToWin };
-                $.post("/", model, function(data) {
-                alert('wyslano!');
-                });
+          $('.game').each(function(index) {
+                     var symbol = $(this).attr("symbol");
+                     XOToWin += (symbol == 'X' || symbol == 'O') ? symbol : ' ';
+          });
+          console.log(XOToWin);
+          var model = { winner : XOToWin };
+               $.ajax({
+                headers: {
+                       'Accept': 'application/json',
+                       'Content-Type': 'application/json'
+                        },
+                'type': 'POST',
+                'url': '/',
+                'data': JSON.stringify(model),
+                'dataType': 'json'
+          });
     });
 
 
