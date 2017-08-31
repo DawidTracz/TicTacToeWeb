@@ -43,7 +43,10 @@ public class MainController {
                         (judgeString.charAt(2) == 'O' && judgeString.charAt(5) == 'O' && judgeString.charAt(8) == 'O') ||
                         (judgeString.charAt(0) == 'O' && judgeString.charAt(4) == 'O' && judgeString.charAt(8) == 'O') ||
                         (judgeString.charAt(2) == 'O' && judgeString.charAt(4) == 'O' && judgeString.charAt(6) == 'O')) {
-            System.out.println("X WON");
+            System.out.println("0 WON");
+        } else if (!judgeString.contains(" ")){
+            System.out.println("Draw");
+
         }
         return null;
     }
