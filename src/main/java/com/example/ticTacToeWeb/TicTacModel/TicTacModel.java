@@ -1,10 +1,14 @@
 package com.example.ticTacToeWeb.TicTacModel;
 
 public class TicTacModel {
-    private  String winner;
 
-    public String getWinner(){
-        return winner;
+    private  String resultString;
+
+    public String getResultString() {
+        return resultString;
     }
 
+    public void setResultString(String resultString) {
+        this.resultString = resultString;
+    }
 }

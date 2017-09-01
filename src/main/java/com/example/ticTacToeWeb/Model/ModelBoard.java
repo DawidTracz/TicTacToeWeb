@@ -2,16 +2,16 @@ package com.example.ticTacToeWeb.Model;
 
 public class ModelBoard {
 
+    private int modelBoard;
 
-
-    private int board;
-
-    public int getBoard() {
-        return board;
+    public int getmodelBoard() {
+        return modelBoard;
     }
 
-    public void setBoard(int board) {
-        this.board = board;
+    public void setmodelBoard(int modelBoard) {
+        this.modelBoard = modelBoard;
+
+
     }
 
 }
