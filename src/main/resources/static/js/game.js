@@ -13,17 +13,19 @@ $(document).ready(function() {
           });
           console.log(XOToWin);
 
-          var model = { winner : XOToWin, rows : 3, cols: 3 };
-               $.ajax({
-                headers: {
-                       'Accept': 'application/json',
-                       'Content-Type': 'application/json'
-                        },
-                'type': 'POST',
-                'url': '/',
-                'data': JSON.stringify(model),
-                'dataType': 'json'
-          });
+          var model = { resultString : XOToWin, rows : 3, cols: 3 };
+
+          $.ajax({
+          headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+
+                    'type': 'POST',
+                    'url': '/',
+                    'data': JSON.stringify(model),
+                    'dataType': 'json'
+           });
     });
 
 
