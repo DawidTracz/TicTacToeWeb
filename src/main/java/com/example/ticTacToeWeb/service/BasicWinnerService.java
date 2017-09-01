@@ -7,11 +7,11 @@ import com.example.ticTacToeWeb.interfaces.WinnerSelector;
 
 public class BasicWinnerService {
 
-    public String selectWinner(ModelBoard modelBoard, TicTacModel ticTacModel) {
+    public String selectWinner(TicTacModel ticTacModel) {
         char winner = ' ';
         boolean haveWinner = false;
         String judgeString = ticTacModel.getResultString();
-        int board = modelBoard.getmodelBoard();
+        int board = ticTacModel.getRows();
         int numberOfCells = (int) Math.pow(board, 2);
 
 
@@ -19,47 +19,41 @@ public class BasicWinnerService {
             char toCheck = judgeString.charAt(i);
 
             for (int j = i + 1; j < i + (board - 1); j++) {
-
                 if (judgeString.charAt(j) != toCheck) {
                     haveWinner = false;
                     break;
-
                 } else {
                     winner = toCheck;
                     haveWinner = true;
+                    System.out.println(1);
                 }
-
             }
-
-            if (haveWinner == true) {
-
+            if (haveWinner) {
                 break;
-            } else continue;
+            }
         }
-        if (haveWinner = false) {
+        if (!haveWinner) {
             for (int i = 0; i <= board; i++) {
                 char toCheck = judgeString.charAt(i);
-                for (int j = i + board; j <= numberOfCells; j += board) {
+                for (int j = i + board+1; j < numberOfCells; j += board) {
                     if (judgeString.charAt(j) != toCheck) {
                         haveWinner = false;
                         break;
                     } else {
                         winner = toCheck;
                         haveWinner = true;
+
                     }
 
                 }
-                if (haveWinner != true) {
-                    continue;
-                } else {
+                if (haveWinner) {
                     break;
                 }
+
             }
 
         }
-
-        if (haveWinner = false) {
-
+        if (!haveWinner) {
             for (int i = 0; i <= numberOfCells; i += board + 1) {
                 char toCheck = judgeString.charAt(0);
                 if (judgeString.charAt(i) != toCheck) {
@@ -68,14 +62,14 @@ public class BasicWinnerService {
                 } else {
                     winner = toCheck;
                     haveWinner = true;
+
                 }
 
             }
         }
-        if (haveWinner = false) {
+        if (!haveWinner) {
             for (int i = board - 1; i <= numberOfCells - (board); i += board - 1) {
                 char toCheck = judgeString.charAt(board - 1);
-
                 if (judgeString.charAt(i) != toCheck) {
                     haveWinner = false;
                     break;
@@ -83,13 +77,13 @@ public class BasicWinnerService {
                     winner = toCheck;
                     haveWinner = true;
                 }
-
             }
         }
-        if (haveWinner = false) {
+        if (!haveWinner) {
             winner = 'D';
+
         }
-        
+
         return "winner is" + winner;
     }
 }

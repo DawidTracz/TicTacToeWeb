@@ -12,7 +12,8 @@ $(document).ready(function() {
                      XOToWin += (symbol == 'X' || symbol == 'O') ? symbol : ' ';
           });
           console.log(XOToWin);
-          var model = { winner : XOToWin };
+
+          var model = { winner : XOToWin, rows : 3, cols: 3 };
                $.ajax({
                 headers: {
                        'Accept': 'application/json',
