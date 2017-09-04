@@ -13,7 +13,7 @@ $(document).ready(function() {
           });
           console.log(XOToWin);
 
-          var model = { resultString : XOToWin, rows : 3, cols: 3 };
+          var model = { boardSymbols : XOToWin, rows : 3, cols: 3 };
 
           $.ajax({
           headers: {

@@ -1,99 +1,70 @@
 package com.example.ticTacToeWeb.service;
 
-import com.example.ticTacToeWeb.Model.ModelBoard;
 import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
-import com.example.ticTacToeWeb.enums.WinnerEnum;
-import com.example.ticTacToeWeb.interfaces.WinnerSelector;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BasicWinnerService {
+    int counter = 0;
 
-    public String selectWinner(TicTacModel ticTacModel) {
+    public char selectWinner(TicTacModel ticTacModel) {
+
+        counter += 1;
         char winner = ' ';
         boolean haveWinner = false;
-        String judgeString = ticTacModel.getResultString();
-        int rowsOrCols = ticTacModel.getRows();
-        int numberOfCells = (int) Math.pow(rowsOrCols, 2);
-        System.out.println(judgeString);
+        String boardSymbols = ticTacModel.getBoardSymbols();
+        int rowsNum = ticTacModel.getRows();
+        int numberOfCells = (int) Math.pow(rowsNum, 2);
+        int initialCondition = 0;
+        int finalCondition = 0;
+        int scope = 0;
+int text= 0;
 
-        for (int i = 0; i < numberOfCells; i += rowsOrCols) {
-            char toCheck = judgeString.charAt(i);
-
-            for (int j = i + 1; j < i + (rowsOrCols - 1); j++) {
-                if (judgeString.charAt(j) != toCheck) {
-                    haveWinner = false;
-                    break;
-                } else {
-                    winner = toCheck;
-                    haveWinner = true;
-
-                }
-                System.out.println("dupa");
-            }
-
-        }
-            if (haveWinner) {
-                System.out.println("winner is1 " + winner);
-
-            }
         if (!haveWinner) {
-            for (int i = 0; i <= rowsOrCols; i++) {
-                char toCheck = judgeString.charAt(i);
-                for (int j = i + rowsOrCols+1; j < numberOfCells; j += rowsOrCols) {
-                    if (judgeString.charAt(j) != toCheck) {
+            for (int i = 0; i < numberOfCells; i++) {
+                char toCheck = boardSymbols.charAt(i);
+                if ((boardSymbols.charAt(i) != ' ') && i < rowsNum) {  //Horizontal
+                    initialCondition = i + rowsNum;
+                    finalCondition = numberOfCells;
+                    scope = rowsNum;
+                    text=1;
+                } else if ((boardSymbols.charAt(i) != ' ') && (boardSymbols.length() % (boardSymbols.length() - i)) == 0) { //vertical
+                    initialCondition = i + 1;
+                    finalCondition = i + (rowsNum - 1);
+                    scope = 1;
+                    text = 2;
+                } else if (boardSymbols.charAt(0) != ' ') {  //cross left right
+                    initialCondition = rowsNum + 1;
+                    finalCondition = numberOfCells + 1;
+                    scope = rowsNum + 1;
+                    text = 3;
+                } else if (boardSymbols.charAt(rowsNum - 1) != ' ') { //cross right left
+                    initialCondition = (rowsNum - 1);
+                    finalCondition = (numberOfCells + 1) - rowsNum;
+                    scope = rowsNum - 1;
+                    text = 4;
+                }
+                for (int j = initialCondition; j < finalCondition; j += scope) {
+                    if (boardSymbols.charAt(j) != toCheck) {
                         haveWinner = false;
                         break;
                     } else {
                         winner = toCheck;
                         haveWinner = true;
-
-
                     }
-
                 }
-                if (haveWinner) {
-                    System.out.println("winner is2 " + winner);
-                    break;
-                }
+                if (haveWinner){break;}
 
             }
-
-        }
-        if (!haveWinner) {
-            for (int i = 0; i <= numberOfCells; i += rowsOrCols + 1) {
-                char toCheck = judgeString.charAt(0);
-                if (judgeString.charAt(i) != toCheck) {
-                    haveWinner = false;
-                    break;
-                } else {
-                    winner = toCheck;
-                    haveWinner = true;
-                    System.out.println("winner is 3" + winner);
-
-                }
-
+            if (!haveWinner && counter == 9) {
+                winner = 'D';
             }
         }
-        if (!haveWinner) {
-            for (int i = rowsOrCols - 1; i <= numberOfCells - (rowsOrCols); i += rowsOrCols - 1) {
-                char toCheck = judgeString.charAt(rowsOrCols - 1);
-                if (judgeString.charAt(i) != toCheck) {
-                    haveWinner = false;
-                    break;
-                } else {
-                    winner = toCheck;
-                    haveWinner = true;
-                    System.out.println("winner is 4" + winner);
-                }
-            }
-        }
-        if (!haveWinner) {
-            winner = 'D';
-            System.out.println("winner is 5" + winner);
-        }
 
-        return "winner is 6" + winner;
+        System.out.println(counter);
+        System.out.println(haveWinner);
+        System.out.println(text);
+        return winner;
     }
 }
 
