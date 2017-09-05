@@ -18,52 +18,95 @@ public class BasicWinnerService {
         int initialCondition = 0;
         int finalCondition = 0;
         int scope = 0;
-int text= 0;
-
+        char toCheck = ' ';
+        System.out.println(rowsNum);
         if (!haveWinner) {
-            for (int i = 0; i < numberOfCells; i++) {
-                char toCheck = boardSymbols.charAt(i);
-                if ((boardSymbols.charAt(i) != ' ') && i < rowsNum) {  //Horizontal
-                    initialCondition = i + rowsNum;
-                    finalCondition = numberOfCells;
-                    scope = rowsNum;
-                    text=1;
-                } else if ((boardSymbols.charAt(i) != ' ') && (boardSymbols.length() % (boardSymbols.length() - i)) == 0) { //vertical
-                    initialCondition = i + 1;
-                    finalCondition = i + (rowsNum - 1);
-                    scope = 1;
-                    text = 2;
-                } else if (boardSymbols.charAt(0) != ' ') {  //cross left right
-                    initialCondition = rowsNum + 1;
-                    finalCondition = numberOfCells + 1;
-                    scope = rowsNum + 1;
-                    text = 3;
-                } else if (boardSymbols.charAt(rowsNum - 1) != ' ') { //cross right left
-                    initialCondition = (rowsNum - 1);
-                    finalCondition = (numberOfCells + 1) - rowsNum;
-                    scope = rowsNum - 1;
-                    text = 4;
-                }
-                for (int j = initialCondition; j < finalCondition; j += scope) {
-                    if (boardSymbols.charAt(j) != toCheck) {
+            if (boardSymbols.charAt(0) != ' ') {
+                toCheck = boardSymbols.charAt(0);
+                for (int i = 1; i < rowsNum; i++) {   //1st horizontal
+                    if (boardSymbols.charAt(i) != toCheck) {
                         haveWinner = false;
+                        toCheck = ' ';
                         break;
                     } else {
                         winner = toCheck;
                         haveWinner = true;
                     }
                 }
-                if (haveWinner){break;}
 
-            }
-            if (!haveWinner && counter == 9) {
-                winner = 'D';
+                if (!haveWinner) {
+                    for (int i = rowsNum ; i < numberOfCells; i += rowsNum) {   //1st vertical
+                        toCheck = boardSymbols.charAt(0);;
+                        if (boardSymbols.charAt(i) != toCheck) {
+                            haveWinner = false;
+                            toCheck = ' ';
+                            break;
+                        } else {
+                            winner = toCheck;
+                            haveWinner = true;
+                        }
+                    }
+
+                    if (!haveWinner) {
+                        for (int i = rowsNum; i < numberOfCells; i += rowsNum) {
+                            if (boardSymbols.charAt(i) != toCheck) {
+                                haveWinner = false;
+                                toCheck = ' ';
+                                break;
+                            } else {
+                                winner = toCheck;
+                                haveWinner = true;
+                            }
+                        }
+                    }
+                }
             }
         }
-
+        if (!haveWinner) {
+            for (int i = 1; i < numberOfCells; i++) {
+                if (boardSymbols.charAt(i) != ' ') {
+                    if (i < rowsNum) {  //Vertical
+                        toCheck = boardSymbols.charAt(i);
+                        initialCondition = i + rowsNum;
+                        finalCondition = numberOfCells;
+                        scope = rowsNum;
+                    } else if (i%rowsNum == 0) { // Horizontal
+                        toCheck = boardSymbols.charAt(i);
+                        initialCondition = i + 1;
+                        finalCondition = i + (rowsNum - 1);
+                        scope = 1;
+                    }
+                }
+                for (int j = initialCondition; j < finalCondition; j += scope) {
+                    if (boardSymbols.charAt(j) != toCheck) {
+                        haveWinner = false;
+                        toCheck = ' ';
+                        break;
+                    } else {
+                        winner = toCheck;
+                        haveWinner = true;
+                    }
+                }
+            }
+        }
+        if (!haveWinner && boardSymbols.charAt(rowsNum - 1) != ' ') {
+            for (int j = (rowsNum - 1); j < (numberOfCells + 1) - rowsNum; j += rowsNum - 1) {
+                if (boardSymbols.charAt(j) != toCheck) {
+                    haveWinner = false;
+                    toCheck = ' ';
+                    break;
+                } else {
+                    winner = toCheck;
+                    haveWinner = true;
+                }
+            }
+        }
+        if (!haveWinner && counter == 9) {
+            winner = 'D';
+        }
         System.out.println(counter);
         System.out.println(haveWinner);
-        System.out.println(text);
+        System.out.println("winner is " +  winner);
         return winner;
     }
 }
