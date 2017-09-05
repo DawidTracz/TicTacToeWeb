@@ -19,11 +19,13 @@ public class BasicWinnerService {
         int finalCondition = 0;
         int scope = 0;
         char toCheck = ' ';
-        System.out.println(rowsNum);
+
+
+
         if (!haveWinner) {
             if (boardSymbols.charAt(0) != ' ') {
-                toCheck = boardSymbols.charAt(0);
                 for (int i = 1; i < rowsNum; i++) {   //1st horizontal
+                    toCheck = boardSymbols.charAt(0);
                     if (boardSymbols.charAt(i) != toCheck) {
                         haveWinner = false;
                         toCheck = ' ';
@@ -33,10 +35,9 @@ public class BasicWinnerService {
                         haveWinner = true;
                     }
                 }
-
                 if (!haveWinner) {
+                        toCheck = boardSymbols.charAt(0);
                     for (int i = rowsNum ; i < numberOfCells; i += rowsNum) {   //1st vertical
-                        toCheck = boardSymbols.charAt(0);;
                         if (boardSymbols.charAt(i) != toCheck) {
                             haveWinner = false;
                             toCheck = ' ';
@@ -46,9 +47,9 @@ public class BasicWinnerService {
                             haveWinner = true;
                         }
                     }
-
                     if (!haveWinner) {
-                        for (int i = rowsNum; i < numberOfCells; i += rowsNum) {
+                            toCheck = boardSymbols.charAt(0);
+                        for (int i = rowsNum+1; i < numberOfCells + 1; i += rowsNum+1) {
                             if (boardSymbols.charAt(i) != toCheck) {
                                 haveWinner = false;
                                 toCheck = ' ';
@@ -66,19 +67,24 @@ public class BasicWinnerService {
             for (int i = 1; i < numberOfCells; i++) {
                 if (boardSymbols.charAt(i) != ' ') {
                     if (i < rowsNum) {  //Vertical
+                        System.out.println("test3");
+                        System.out.println(i);
                         toCheck = boardSymbols.charAt(i);
                         initialCondition = i + rowsNum;
                         finalCondition = numberOfCells;
                         scope = rowsNum;
-                    } else if (i%rowsNum == 0) { // Horizontal
+                    } else if (i % rowsNum == 0) { // Horizontal
+                        System.out.println("test2");
                         toCheck = boardSymbols.charAt(i);
                         initialCondition = i + 1;
                         finalCondition = i + (rowsNum - 1);
                         scope = 1;
                     }
                 }
+            }
                 for (int j = initialCondition; j < finalCondition; j += scope) {
                     if (boardSymbols.charAt(j) != toCheck) {
+                        System.out.println("test1");
                         haveWinner = false;
                         toCheck = ' ';
                         break;
@@ -88,9 +94,11 @@ public class BasicWinnerService {
                     }
                 }
             }
-        }
+
         if (!haveWinner && boardSymbols.charAt(rowsNum - 1) != ' ') {
-            for (int j = (rowsNum - 1); j < (numberOfCells + 1) - rowsNum; j += rowsNum - 1) {
+            System.out.println("test");
+            toCheck = boardSymbols.charAt(rowsNum - 1);
+            for (int j = (rowsNum - 1)+(rowsNum - 1); j < (numberOfCells + 1) - rowsNum; j += rowsNum - 1) {
                 if (boardSymbols.charAt(j) != toCheck) {
                     haveWinner = false;
                     toCheck = ' ';
