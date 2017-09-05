@@ -9,6 +9,11 @@ public class BasicWinnerService {
 
     public char selectWinner(TicTacModel ticTacModel) {
 
+
+
+        // <--------Parameters for checking who is the Winner ------------>
+
+
         counter += 1;
         char winner = ' ';
         boolean haveWinner = false;
@@ -49,7 +54,7 @@ public class BasicWinnerService {
                     }
                     if (!haveWinner) {
                             toCheck = boardSymbols.charAt(0);
-                        for (int i = rowsNum+1; i < numberOfCells + 1; i += rowsNum+1) {
+                        for (int i = rowsNum+1; i < numberOfCells + 1; i += rowsNum+1) { //1st cross
                             if (boardSymbols.charAt(i) != toCheck) {
                                 haveWinner = false;
                                 toCheck = ' ';
@@ -66,15 +71,12 @@ public class BasicWinnerService {
         if (!haveWinner) {
             for (int i = 1; i < numberOfCells; i++) {
                 if (boardSymbols.charAt(i) != ' ') {
-                    if (i < rowsNum) {  //Vertical
-                        System.out.println("test3");
-                        System.out.println(i);
+                    if (i < rowsNum) {  //Vertical set
                         toCheck = boardSymbols.charAt(i);
                         initialCondition = i + rowsNum;
                         finalCondition = numberOfCells;
                         scope = rowsNum;
-                    } else if (i % rowsNum == 0) { // Horizontal
-                        System.out.println("test2");
+                    } else if (i % rowsNum == 0) { // Horizontal set
                         toCheck = boardSymbols.charAt(i);
                         initialCondition = i + 1;
                         finalCondition = i + (rowsNum - 1);
@@ -84,7 +86,6 @@ public class BasicWinnerService {
             }
                 for (int j = initialCondition; j < finalCondition; j += scope) {
                     if (boardSymbols.charAt(j) != toCheck) {
-                        System.out.println("test1");
                         haveWinner = false;
                         toCheck = ' ';
                         break;
@@ -94,9 +95,7 @@ public class BasicWinnerService {
                     }
                 }
             }
-
         if (!haveWinner && boardSymbols.charAt(rowsNum - 1) != ' ') {
-            System.out.println("test");
             toCheck = boardSymbols.charAt(rowsNum - 1);
             for (int j = (rowsNum - 1)+(rowsNum - 1); j < (numberOfCells + 1) - rowsNum; j += rowsNum - 1) {
                 if (boardSymbols.charAt(j) != toCheck) {
@@ -109,7 +108,9 @@ public class BasicWinnerService {
                 }
             }
         }
-        if (!haveWinner && counter == 9) {
+
+        if (!haveWinner && counter == numberOfCells) {
+            counter=0;
             winner = 'D';
         }
         System.out.println(counter);
