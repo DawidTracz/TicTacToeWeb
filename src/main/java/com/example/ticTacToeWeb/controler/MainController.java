@@ -1,9 +1,8 @@
 package com.example.ticTacToeWeb.controler;
 
-import com.example.ticTacToeWeb.Model.ModelBoard;
+
 import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
 import com.example.ticTacToeWeb.service.BasicWinnerService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

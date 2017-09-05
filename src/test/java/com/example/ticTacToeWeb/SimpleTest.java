@@ -133,15 +133,22 @@ public class SimpleTest {
     }
 
     @Test
-    public void Test4x4() {
-        TicTacModel model = TicTacModel.create().cols(3).rows(3).boardSymbols("XXXX            ").build();
+    public void Test4x4H() {
+        TicTacModel model = TicTacModel.create().cols(4).rows(4).boardSymbols("XXXX            ").build();
 
         Assert.assertEquals('X', winnerService.selectWinner(model));
     }
 
     @Test
-    public void Tes22t() {
-        TicTacModel model = TicTacModel.create().cols(3).rows(3).boardSymbols("X   X   X   X   ").build();
+    public void Test4x4Vert() {
+        TicTacModel model = TicTacModel.create().cols(4).rows(4).boardSymbols("X   X   X   X   ").build();
+
+        Assert.assertEquals('X', winnerService.selectWinner(model));
+    }
+
+    @Test
+    public void Test4x4cross() {
+        TicTacModel model = TicTacModel.create().cols(4).rows(4).boardSymbols("X    X    X    X").build();
 
         Assert.assertEquals('X', winnerService.selectWinner(model));
     }
