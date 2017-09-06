@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BasicWinnerService {
-    int counter = 0;
+
 
     public char selectWinner(TicTacModel ticTacModel) {
 
@@ -14,7 +14,6 @@ public class BasicWinnerService {
         // <--------Parameters for checking who is the Winner ------------>
 
 
-        counter += 1;
         char winner = ' ';
         boolean haveWinner = false;
         String boardSymbols = ticTacModel.getBoardSymbols();
@@ -109,11 +108,11 @@ public class BasicWinnerService {
             }
         }
 
-        if (!haveWinner && counter == numberOfCells) {
-            counter=0;
+        if (!haveWinner && !boardSymbols.contains(" ")) {
             winner = 'D';
+            haveWinner=true;
         }
-        System.out.println(counter);
+
         System.out.println(haveWinner);
         System.out.println("winner is " +  winner);
         return winner;

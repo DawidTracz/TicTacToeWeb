@@ -133,6 +133,14 @@ public class SimpleTest {
     }
 
     @Test
+    public void selectWinner_should_select_D_when_symbols_represent_DRAW() {
+        TicTacModel model = TicTacModel.create().cols(3).rows(3).boardSymbols("XOXXOOOXX").build();
+
+        Assert.assertEquals('D', winnerService.selectWinner(model));
+    }
+
+
+    @Test
     public void selectWinner_should_select_X_when_all_symbols_in_first_row_equals_X_when_board_size_equals_4X4()  {
         TicTacModel model = TicTacModel.create().cols(4).rows(4).boardSymbols("XXXX            ").build();
 
