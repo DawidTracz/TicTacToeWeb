@@ -1,4 +1,4 @@
-package com.example.ticTacToeWeb.Model;
+package com.example.ticTacToeWeb.model;
 
 public class ModelBoard {
 

@@ -1,7 +1,7 @@
 package com.example.ticTacToeWeb.controler;
 
 
-import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
+import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
 import com.example.ticTacToeWeb.logic.BasicWinnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
