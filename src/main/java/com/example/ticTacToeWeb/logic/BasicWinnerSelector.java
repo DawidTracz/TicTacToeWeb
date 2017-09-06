@@ -3,7 +3,7 @@ package com.example.ticTacToeWeb.logic;
 import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
 
 
-public class BasicWinnerService implements WinnerSelector {
+public class BasicWinnerSelector implements WinnerSelector {
 
 
 

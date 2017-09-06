@@ -1,18 +1,18 @@
 package com.example.ticTacToeWeb;
 
 import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
-import com.example.ticTacToeWeb.logic.BasicWinnerService;
+import com.example.ticTacToeWeb.logic.BasicWinnerSelector;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class SimpleTest {
 
-    private BasicWinnerService winnerService;
+    private BasicWinnerSelector winnerService;
 
     @Before
     public void setup() {
-        winnerService = new BasicWinnerService();
+        winnerService = new BasicWinnerSelector();
     }
 
     //actual.action = expected

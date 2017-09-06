@@ -2,7 +2,7 @@ package com.example.ticTacToeWeb.controler;
 
 
 import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
-import com.example.ticTacToeWeb.logic.BasicWinnerService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class MainController {
 
     @Autowired
-    private BasicWinnerService basicWinnerService;
+    private GameService gameService;
 
     @GetMapping("/")
     public String mainPage(Model model) {
@@ -23,7 +23,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String sendWinningString(@RequestBody TicTacModel ticTacModel) {
 
-        basicWinnerService.selectWinner(ticTacModel);
+        gameService.selectWinner(ticTacModel);
 
         return null;
     }
