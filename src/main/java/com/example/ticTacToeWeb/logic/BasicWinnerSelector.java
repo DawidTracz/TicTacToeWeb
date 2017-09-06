@@ -94,7 +94,6 @@ public class BasicWinnerSelector implements WinnerSelector {
             for (int j = (rowsNum - 1) + (rowsNum - 1); j < (numberOfCells + 1) - rowsNum; j += rowsNum - 1) {
                 if (boardSymbols.charAt(j) != toCheck) {
                     haveWinner = false;
-                    toCheck = ' ';
                     break;
                 } else {
                     winner = toCheck;
@@ -105,7 +104,6 @@ public class BasicWinnerSelector implements WinnerSelector {
 
         if (!haveWinner && !boardSymbols.contains(" ")) {
             winner = 'D';
-            haveWinner = true;
             System.out.println("no contest - draw");
         } else if (haveWinner) {
 

@@ -1,5 +1,5 @@
 package com.example.ticTacToeWeb.enums;
 
 public enum WinnerEnum {
-Winner1, Winner2, Draw
+WINNER_1, WINNER_2, DRAW
 }

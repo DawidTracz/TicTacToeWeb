@@ -24,7 +24,10 @@ $(document).ready(function() {
                     'type': 'POST',
                     'url': '/',
                     'data': JSON.stringify(model),
-                    'dataType': 'json'
+                    'dataType': 'json',
+                    'success' : function(data) {
+                        alert(data);
+                    }
            });
     });
 

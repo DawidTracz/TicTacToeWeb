@@ -8,10 +8,7 @@ public class ModelBoard {
         return modelBoard;
     }
 
-    public void setmodelBoard(int modelBoard) {
-        this.modelBoard = modelBoard;
 
-
-    }
+    //CREATE BUILDER!!!!!!!!!!!!!!!!!!!!!
 
 }
