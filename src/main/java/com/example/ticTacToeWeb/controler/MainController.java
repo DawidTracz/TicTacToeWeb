@@ -1,6 +1,7 @@
 package com.example.ticTacToeWeb.controler;
 
 
+import com.example.ticTacToeWeb.service.GameService;
 import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String sendWinningString(@RequestBody TicTacModel ticTacModel) {
 
-        gameService.selectWinner(ticTacModel);
+        gameService.basicWinnerSelectorCall();
 
         return null;
     }
