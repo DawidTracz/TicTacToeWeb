@@ -24,7 +24,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String sendWinningString(@RequestBody TicTacModel ticTacModel) {
 
-        gameService.basicWinnerSelectorCall();
+        gameService.basicWinnerSelectorCall(ticTacModel);
 
         return null;
     }
