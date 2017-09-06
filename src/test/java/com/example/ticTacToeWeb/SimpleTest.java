@@ -1,7 +1,7 @@
 package com.example.ticTacToeWeb;
 
 import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
-import com.example.ticTacToeWeb.service.BasicWinnerService;
+import com.example.ticTacToeWeb.logic.BasicWinnerService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

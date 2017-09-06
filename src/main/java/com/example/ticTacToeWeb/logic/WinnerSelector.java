@@ -1,4 +1,4 @@
-package com.example.ticTacToeWeb.interfaces;
+package com.example.ticTacToeWeb.logic;
 
 
 import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
@@ -6,7 +6,7 @@ import com.example.ticTacToeWeb.TicTacModel.TicTacModel;
 
 public interface WinnerSelector {
 
-    String selectWinner(TicTacModel ticTacModel);
+    char selectWinner(TicTacModel ticTacModel);
 
 
 
