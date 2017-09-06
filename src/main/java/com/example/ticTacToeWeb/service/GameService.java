@@ -15,7 +15,7 @@ public class GameService {
    public void  basicWinnerSelectorCall(TicTacModel ticTacModel) {
 
        BasicWinnerSelector basicWinnerSelector = new BasicWinnerSelector();
-       basicWinnerSelector.selectWinner(TicTacModel.create().build());
+       basicWinnerSelector.selectWinner(ticTacModel);
 
 
    }
