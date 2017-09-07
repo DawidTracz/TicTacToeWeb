@@ -6,7 +6,7 @@ import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
 
 public interface WinnerSelector {
 
-   char selectWinner(TicTacModel ticTacModel);
+   String selectWinner(TicTacModel ticTacModel);
 
 
 }

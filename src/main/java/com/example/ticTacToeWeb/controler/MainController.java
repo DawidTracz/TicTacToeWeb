@@ -22,9 +22,10 @@ public class MainController {
 
     @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public char sendWinningString(@RequestBody TicTacModel ticTacModel) {
-        System.out.println(ticTacModel.getBoardSymbols());
-        return gameService.basicWinnerSelectorCall(ticTacModel);
+    public String sendWinningString(@RequestBody TicTacModel ticTacModel) {
+        String response = gameService.basicWinnerSelectorCall(ticTacModel);
+        System.out.println(response);
+        return response;
     }
 }
 

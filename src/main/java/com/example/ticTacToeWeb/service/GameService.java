@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class GameService {
 
 
-   public char  basicWinnerSelectorCall(TicTacModel ticTacModel) {
+   public String basicWinnerSelectorCall(TicTacModel ticTacModel) {
 
        BasicWinnerSelector basicWinnerSelector = new BasicWinnerSelector();
        return basicWinnerSelector.selectWinner(ticTacModel);

@@ -7,7 +7,7 @@ public class BasicWinnerSelector implements WinnerSelector {
 
 
 
-    public char selectWinner(TicTacModel ticTacModel) {
+    public String selectWinner(TicTacModel ticTacModel) {
 
         // <--------Parameters for checking who is the Winner ------------>
         char winner = ' ';
@@ -105,12 +105,13 @@ public class BasicWinnerSelector implements WinnerSelector {
         if (!haveWinner && !boardSymbols.contains(" ")) {
             winner = 'D';
             System.out.println("no contest - draw");
+            return "no contest - draw";
         } else if (haveWinner) {
-
             System.out.println("the winner is " + winner);
+            return "the winner is " + winner;
         }
 
-        return winner;
+        return "";
     }
 }
 
