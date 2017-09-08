@@ -15,7 +15,6 @@ public class TicTacModel {
     }
 
     public static Builder create(){
-
         return new Builder();
     }
 
