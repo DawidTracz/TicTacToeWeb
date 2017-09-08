@@ -18,14 +18,11 @@ public class ResultModel {
 
         private ResultModel resultModel = new ResultModel();
 
-        public ResultModel getResultModel() {
-            return resultModel;
-        }
-
 
         public ResultModel build() {
             return resultModel;
         }
+
     }
 }
 
