@@ -6,6 +6,9 @@ public class TicTacModel {
     private int rows;
     private int cols;
 
+
+
+
     public String getBoardSymbols() {
         return boardSymbols;
     }
