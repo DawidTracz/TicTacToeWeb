@@ -1,10 +1,10 @@
 package com.example.ticTacToeWeb.ticTacModel;
 
-public class ResultModel {
+public class Result {
 
-    public ResultModel resultModel = new ResultModel();
+    public Result resultModel = new Result();
 
-    public ResultModel getResult() {
+    public Result getResult() {
         return resultModel;
     }
 
@@ -16,10 +16,10 @@ public class ResultModel {
 
     public static class Builder {
 
-        private ResultModel resultModel = new ResultModel();
+        private Result resultModel = new Result();
 
 
-        public ResultModel build() {
+        public Result build() {
             return resultModel;
         }
 

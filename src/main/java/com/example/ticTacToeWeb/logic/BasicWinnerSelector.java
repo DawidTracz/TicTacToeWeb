@@ -1,13 +1,13 @@
 package com.example.ticTacToeWeb.logic;
 
-import com.example.ticTacToeWeb.ticTacModel.TicTacModel;
+import com.example.ticTacToeWeb.ticTacModel.TicTacBoard;
 
 
 public class BasicWinnerSelector implements WinnerSelector {
 
 
 
-    public String selectWinner(TicTacModel ticTacModel) {
+    public String selectWinner(TicTacBoard ticTacModel) {
 
         // <--------Parameters for checking who is the Winner ------------>
         char winner = ' ';

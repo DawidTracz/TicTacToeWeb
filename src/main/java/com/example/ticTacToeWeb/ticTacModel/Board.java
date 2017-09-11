@@ -1,6 +1,6 @@
 package com.example.ticTacToeWeb.ticTacModel;
 
-public class ModelBoard {
+public class Board {
 
     private int modelBoard;
 
