@@ -1,26 +1,41 @@
 package com.example.ticTacToeWeb.ticTacModel;
 
+import com.example.ticTacToeWeb.interfaces.Buildable;
+
 public class Result {
 
-    public Result resultModel = new Result();
+    public Result result = new Result();
+
 
     public Result getResult() {
-        return resultModel;
+
+        return result;
     }
 
 
-    public static Builder create() {
-        return new Builder();
+    public static ResultBuilder create() {
+        return new ResultBuilder();
     }
 
 
-    public static class Builder {
+    public static class ResultBuilder implements Buildable<Result> {
 
-        private Result resultModel = new Result();
+        private Result result = new Result();
 
+        public ResultBuilder result() {
+
+            Result.result = result;
+            return this;
+
+        }
+
+
+        @Override
 
         public Result build() {
-            return resultModel;
+
+
+            return result;
         }
 
     }
