@@ -18,6 +18,8 @@ public class TicTacBoard {
         return rows;
     }
 
+
+
     public static TicTacBuilder create() {
         return new TicTacBuilder();
     }
@@ -26,6 +28,8 @@ public class TicTacBoard {
 
 
         private TicTacBoard ticTacBoard = new TicTacBoard();
+
+
 
 
         public TicTacBuilder rows(int rows) {

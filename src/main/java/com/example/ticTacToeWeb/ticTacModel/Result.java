@@ -4,40 +4,56 @@ import com.example.ticTacToeWeb.interfaces.Buildable;
 
 public class Result {
 
-    public Result result = new Result();
+    private String winner;
+    private boolean isFinished;
+    private boolean hasWinner;
 
 
-    public Result getResult() {
+    public String getWinner() {return winner;}
 
-        return result;
+    public boolean isFinished() {
+        return isFinished;
     }
 
+    public boolean isHasWinner() {
+        return hasWinner;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "winner='" + winner + '\'' +
+                ", isFinished=" + isFinished +
+                ", hasWinner=" + hasWinner +
+                '}';
+    }
 
     public static ResultBuilder create() {
         return new ResultBuilder();
     }
 
-
     public static class ResultBuilder implements Buildable<Result> {
+        private Result resultObject = new Result();
 
-        private Result result = new Result();
 
-        public ResultBuilder result() {
 
-            Result.result = result;
+        public ResultBuilder result(String result) {
+
+            resultObject.winner =result;
+
             return this;
-
         }
-
 
         @Override
+        public Result build() { return resultObject;}
 
-        public Result build() {
-
-
-            return result;
+        public ResultBuilder hasWinner(boolean b) {
+            return null;
         }
 
+        public ResultBuilder isFinished(boolean b) {
+            return null;
+        }
     }
 }
 

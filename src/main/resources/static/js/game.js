@@ -26,7 +26,9 @@ $(document).ready(function() {
                     'data': JSON.stringify(model),
                     'dataType': 'json',
                     'success' : function(data) {
-                        alert(data);
+                    if(JSON.stringify(data)!="{}"){
+                        alert(JSON.stringify(data));
+                    }
                     },
                     'error' :  function (xhr, ajaxOptions, thrownError) {
                                       alert(thrownError);

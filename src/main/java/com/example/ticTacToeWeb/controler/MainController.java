@@ -2,6 +2,7 @@ package com.example.ticTacToeWeb.controler;
 
 
 import com.example.ticTacToeWeb.service.GameService;
+import com.example.ticTacToeWeb.ticTacModel.Result;
 import com.example.ticTacToeWeb.ticTacModel.TicTacBoard;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,11 @@ public class MainController {
 
     @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String sendWinningString(@RequestBody TicTacBoard ticTacModel) {
-        String response = gameService.basicWinnerSelectorCall(ticTacModel);
+    public Result sendWinningString(@RequestBody TicTacBoard ticTacModel) {
+        Result result = gameService.basicWinnerSelectorCall(ticTacModel);
 
-
-
-        System.out.println(response);
-        return response;
+        System.out.println(result.toString());
+        return result;
     }
 }
 

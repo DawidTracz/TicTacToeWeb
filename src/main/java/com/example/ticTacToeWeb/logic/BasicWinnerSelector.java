@@ -1,13 +1,12 @@
 package com.example.ticTacToeWeb.logic;
 
+import com.example.ticTacToeWeb.ticTacModel.Result;
 import com.example.ticTacToeWeb.ticTacModel.TicTacBoard;
 
 
 public class BasicWinnerSelector implements WinnerSelector {
 
-
-
-    public String selectWinner(TicTacBoard ticTacModel) {
+    public Result selectWinner(TicTacBoard ticTacModel) {
 
         // <--------Parameters for checking who is the Winner ------------>
         char winner = ' ';
@@ -19,6 +18,7 @@ public class BasicWinnerSelector implements WinnerSelector {
         int finalCondition = 0;
         int scope = 0;
         char toCheck = ' ';
+
 
 
         if (!haveWinner) {
@@ -104,14 +104,16 @@ public class BasicWinnerSelector implements WinnerSelector {
 
         if (!haveWinner && !boardSymbols.contains(" ")) {
             winner = 'D';
-            System.out.println("no contest - draw");
-            return "no contest - draw";
+
+
+            return Result.create().hasWinner(false).isFinished(true).build();
         } else if (haveWinner) {
-            System.out.println("the winner is " + winner);
-            return "the winner is " + winner;
+
+            return "{\"winner\":\""+winner+"\"}";
         }
 
-        return "";
+
+        return Result.create().isFinished(false).build();
     }
 }
 
