@@ -1,5 +1,6 @@
 package com.example.ticTacToeWeb;
 
+import com.example.ticTacToeWeb.ticTacModel.Result;
 import com.example.ticTacToeWeb.ticTacModel.TicTacBoard;
 import com.example.ticTacToeWeb.logic.BasicWinnerSelector;
 import org.junit.Assert;
@@ -20,7 +21,7 @@ public class SimpleTest {
     public void selectWinner_should_select_X_when_all_symbols_equals_X() {
         TicTacBoard model = TicTacBoard.create().cols(3).rows(3).boardSymbols("XXXXXXXXX").build();
 
-        Assert.assertEquals('X', winnerService.selectWinner(model));
+        Assert.assertEquals(Result.create().hasWinner(true).isFinished(true).build(), winnerService.selectWinner(model));
     }
 
     @Test

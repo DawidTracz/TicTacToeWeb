@@ -26,7 +26,7 @@ $(document).ready(function() {
                     'data': JSON.stringify(model),
                     'dataType': 'json',
                     'success' : function(data) {
-                    if(JSON.stringify(data)!="{}"){
+                    if(JSON.stringify(data)!="{winner='null', isFinished=false}"){
                         alert(JSON.stringify(data));
                     }
                     },

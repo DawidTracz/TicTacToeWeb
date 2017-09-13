@@ -2,6 +2,8 @@ package com.example.ticTacToeWeb.ticTacModel;
 
 import com.example.ticTacToeWeb.interfaces.Buildable;
 
+import java.util.ResourceBundle;
+
 public class Result {
 
     private String winner;
@@ -15,7 +17,7 @@ public class Result {
         return isFinished;
     }
 
-    public boolean isHasWinner() {
+    public boolean hasWinner() {
         return hasWinner;
     }
 
@@ -33,8 +35,8 @@ public class Result {
     }
 
     public static class ResultBuilder implements Buildable<Result> {
-        private Result resultObject = new Result();
 
+        private Result resultObject = new Result();
 
 
         public ResultBuilder result(String result) {
@@ -44,15 +46,21 @@ public class Result {
             return this;
         }
 
+
+
         @Override
+
         public Result build() { return resultObject;}
 
         public ResultBuilder hasWinner(boolean b) {
-            return null;
+            resultObject.hasWinner = b;
+            return this;
         }
 
-        public ResultBuilder isFinished(boolean b) {
-            return null;
+        public ResultBuilder isFinished(boolean isFinished)
+        {
+        resultObject.isFinished = isFinished;
+            return this;
         }
     }
 }
