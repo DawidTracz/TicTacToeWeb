@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
 
 public class Result {
 
-    private char winSymbol;
+    private String  winSymbol;
     private boolean isFinished;
     private boolean hasWinner;
 
 
-    public char getWinSymbol() {return winSymbol;}
+    public String getWinSymbol() {return winSymbol;}
 
     public boolean isFinished() {
         return isFinished;
@@ -39,7 +39,7 @@ public class Result {
         private Result resultObject = new Result();
 
 
-        public ResultBuilder result(char result) {
+        public ResultBuilder result(String result) {
 
             resultObject.winSymbol = result;
 
@@ -53,7 +53,7 @@ public class Result {
         public Result build() { return resultObject;}
 
 
-        public ResultBuilder winner(char winner) {
+        public ResultBuilder winner(String winner) {
             resultObject.winSymbol = winner;
             return this;
         }
