@@ -6,25 +6,25 @@ import java.util.ResourceBundle;
 
 public class Result {
 
-    private String winner;
+    private char winSymbol;
     private boolean isFinished;
     private boolean hasWinner;
 
 
-    public String getWinner() {return winner;}
+    public char getWinSymbol() {return winSymbol;}
 
     public boolean isFinished() {
         return isFinished;
     }
 
-    public boolean hasWinner() {
+    public boolean isWinner() {
         return hasWinner;
     }
 
     @Override
     public String toString() {
         return "Result{" +
-                "winner='" + winner + '\'' +
+                "winner='" + winSymbol + '\'' +
                 ", isFinished=" + isFinished +
                 ", hasWinner=" + hasWinner +
                 '}';
@@ -39,9 +39,9 @@ public class Result {
         private Result resultObject = new Result();
 
 
-        public ResultBuilder result(String result) {
+        public ResultBuilder result(char result) {
 
-            resultObject.winner =result;
+            resultObject.winSymbol = result;
 
             return this;
         }
@@ -52,8 +52,13 @@ public class Result {
 
         public Result build() { return resultObject;}
 
-        public ResultBuilder hasWinner(boolean b) {
-            resultObject.hasWinner = b;
+
+        public ResultBuilder winner(char winner) {
+            resultObject.winSymbol = winner;
+            return this;
+        }
+        public ResultBuilder hasWinner(boolean hasWinner) {
+            resultObject.hasWinner = hasWinner;
             return this;
         }
 
@@ -62,6 +67,7 @@ public class Result {
         resultObject.isFinished = isFinished;
             return this;
         }
+
     }
 }
 

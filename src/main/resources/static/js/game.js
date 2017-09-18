@@ -26,8 +26,11 @@ $(document).ready(function() {
                     'data': JSON.stringify(model),
                     'dataType': 'json',
                     'success' : function(data) {
-                    if(JSON.stringify(data)!="{winner='null', isFinished=false}"){
-                        alert(JSON.stringify(data));
+                    console.log(data);
+                    if(data.winner === true ){
+
+                        alert("winner is " + data.winSymbol);
+                         location.reload();
                     }
                     },
                     'error' :  function (xhr, ajaxOptions, thrownError) {
