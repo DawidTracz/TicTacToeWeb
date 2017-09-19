@@ -1,5 +1,19 @@
 $(document).ready(function() {
+    var rows = 4;
+    var cols = 4;
     var clickCount = 1;
+
+
+    for (var i=0; i<rows; i++){
+        $("<div class='container board'></div>").appendTo("#board");
+        }
+    $("<div class='btn-group btn-group-justified' role='group' aria-label='...'></div>").appendTo(".container");
+    for (var j=0; j<rows; j++){
+         $("<div class='btn-group btn-group-lower-class' role='group'></div>").appendTo(".btn-group-justified");
+    }
+    $("<button class='btn btn-default game' data-row='' data-col='' symbol=''/>").appendTo(".btn-group-lower-class");
+
+
     $('.game').click(function() {
           var XOToWin="";
           clickCount++;
@@ -12,7 +26,7 @@ $(document).ready(function() {
                      XOToWin += (symbol == 'X' || symbol == 'O') ? symbol : ' ';
           });
           console.log(XOToWin);
-          var model = { boardSymbols : XOToWin, rows : 3, cols: 3 };
+          var model = { boardSymbols : XOToWin, rows : rows, cols: cols };
           $.ajax({
           headers: {
                     'Accept': 'application/json',
