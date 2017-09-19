@@ -12,14 +12,12 @@ public class BasicWinnerSelector implements WinnerSelector {
         char winner = ' ';
         boolean hasWinner = false;
         String boardSymbols = ticTacModel.getBoardSymbols();
-
         int rowsNum = ticTacModel.getRows();
         int numberOfCells = (int) Math.pow(rowsNum, 2);
         int initialCondition = 0;
         int finalCondition = 0;
         int scope = 0;
         char toCheck = ' ';
-
 
 
         if (!hasWinner) {
@@ -82,7 +80,6 @@ public class BasicWinnerSelector implements WinnerSelector {
             for (int j = initialCondition; j < finalCondition; j += scope) {
                 if (boardSymbols.charAt(j) != toCheck) {
                     hasWinner = false;
-                    toCheck = ' ';
                     break;
                 } else {
                     winner = toCheck;
@@ -110,7 +107,7 @@ public class BasicWinnerSelector implements WinnerSelector {
             return Result.create().winner(""+winner).hasWinner(true).isFinished(true).build();
         }
 
-        return Result.create().winner("").hasWinner(false).isFinished(false).build();
+        return Result.create().winner(null).hasWinner(false).isFinished(false).build();
     }
 }
 

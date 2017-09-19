@@ -12,15 +12,12 @@ $(document).ready(function() {
                      XOToWin += (symbol == 'X' || symbol == 'O') ? symbol : ' ';
           });
           console.log(XOToWin);
-
           var model = { boardSymbols : XOToWin, rows : 3, cols: 3 };
-
           $.ajax({
           headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                     },
-
                     'type': 'POST',
                     'url': '/',
                     'data': JSON.stringify(model),
@@ -28,9 +25,8 @@ $(document).ready(function() {
                     'success' : function(data) {
                     console.log(data);
                     if(data.winner === true ){
-
                         alert("winner is " + data.winSymbol);
-                         location.reload();
+                        location.reload();
                     }
                     },
                     'error' :  function (xhr, ajaxOptions, thrownError) {
@@ -38,8 +34,6 @@ $(document).ready(function() {
                                     }
            });
     });
-
-
     $('.game').each(function(index) {
         var button = $($(this)[0]);
         button.attr("data-row", parseInt(index/3));
