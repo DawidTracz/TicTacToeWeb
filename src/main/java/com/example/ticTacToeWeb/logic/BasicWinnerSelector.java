@@ -103,7 +103,7 @@ public class BasicWinnerSelector implements WinnerSelector {
             }
         }
         if (!hasWinner && !boardSymbols.contains(" ")) {
-            return Result.create().winner("D").hasWinner(false).isFinished(true).build();
+            return Result.create().winner(WinnerEnum.valueOf("D").getWinnerSymbol()).hasWinner(false).isFinished(true).build();
         } else if (hasWinner) {
             return Result.create().winner(WinnerEnum.valueOf(""+winner).getWinnerSymbol()).hasWinner(true).isFinished(true).build();
         }
