@@ -1,15 +1,9 @@
 package com.example.ticTacToeWeb.enums;
 
 public enum TicTacEnum {
-    X('X'), O('O');
+    X("X"), O("O");
 
-    private char ticToeSymbols;
-
-    TicTacEnum(char ticToeSymbols) {
-        this.ticToeSymbols = ticToeSymbols;
-    }
-
-    public char getTicToeSymbols() {
-        return ticToeSymbols;
-    }
+    private String  ticToeSymbols;
+    TicTacEnum(String ticToeSymbols) {this.ticToeSymbols = ticToeSymbols;}
+    public String getTicToeSymbols() {return ticToeSymbols;}
 }

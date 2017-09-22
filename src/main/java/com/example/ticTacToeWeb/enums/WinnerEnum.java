@@ -1,5 +1,9 @@
 package com.example.ticTacToeWeb.enums;
 
 public enum WinnerEnum {
-WINNER_1, WINNER_2, DRAW
+X("Winner_1"), O("Winner_2"), D("Draw");
+
+    private String  winnerSymbol;
+    WinnerEnum(String winnerSymbol) {this.winnerSymbol = winnerSymbol;}
+    public String getWinnerSymbol() {return winnerSymbol;}
 }

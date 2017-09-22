@@ -1,7 +1,10 @@
 package com.example.ticTacToeWeb.logic;
 
+import com.example.ticTacToeWeb.enums.WinnerEnum;
 import com.example.ticTacToeWeb.ticTacModel.Result;
 import com.example.ticTacToeWeb.ticTacModel.TicTacBoard;
+
+import java.util.Optional;
 
 
 public class BasicWinnerSelector implements WinnerSelector {
@@ -102,9 +105,9 @@ public class BasicWinnerSelector implements WinnerSelector {
         if (!hasWinner && !boardSymbols.contains(" ")) {
             return Result.create().winner("D").hasWinner(false).isFinished(true).build();
         } else if (hasWinner) {
-            return Result.create().winner(""+winner).hasWinner(true).isFinished(true).build();
+            return Result.create().winner(WinnerEnum.valueOf(""+winner).getWinnerSymbol()).hasWinner(true).isFinished(true).build();
         }
-        return Result.create().winner(null).hasWinner(false).isFinished(false).build();
+        return Result.create().hasWinner(false).isFinished(false).build();
     }
 }
 

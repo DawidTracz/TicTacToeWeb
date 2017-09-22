@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
-
     @Autowired
     private GameService gameService;
 
@@ -25,7 +24,6 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Result sendWinningString(@RequestBody TicTacBoard ticTacModel) {
         Result result = gameService.basicWinnerSelectorCall(ticTacModel);
-
         System.out.println(result.toString());
         return result;
     }

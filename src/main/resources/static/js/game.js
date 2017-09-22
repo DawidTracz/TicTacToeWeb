@@ -3,21 +3,16 @@ $(document).ready(function() {
     var cols = 4;
     var clickCount = 1;
 
-
-
-
-
     for (var i=0; i<rows; i++){
         $("<div class='container board'></div>").appendTo("#board");
-        }
+    }
+
     $("<div class='btn-group-justified rows' role='group' aria-label='...'></div>").appendTo(".board");
     for (var j=0; j<rows; j++){
         $("<div class='btn btn-default ticToeButton' role='group' data-row='' data-col='' symbol=''></div>").appendTo(".rows");
     }
 
     $("div.btn").css("height", 100/rows+"vh");
-
-
     $('.ticToeButton').click(function() {
           var XOToWin="";
           clickCount++;
@@ -45,8 +40,7 @@ $(document).ready(function() {
                     if(data.finished === true ){
                         alert("winner is " + data.winSymbol);
                         location.reload();
-                    }
-                    },
+                    }},
                     'error' :  function (xhr, ajaxOptions, thrownError) {
                                       alert(thrownError);
                                     }
@@ -57,5 +51,4 @@ $(document).ready(function() {
         button.attr("data-row", parseInt(index/rows));
         button.attr("data-col", index%cols);
     });
-
 });
