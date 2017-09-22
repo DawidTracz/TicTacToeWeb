@@ -10,6 +10,7 @@ public class TicTacBoard {
     public String getBoardSymbols() {
         return boardSymbols;
     }
+
     public int getRows() {
         return rows;
     }
@@ -20,19 +21,23 @@ public class TicTacBoard {
 
     public static class TicTacBuilder implements Buildable<TicTacBoard> {
         private TicTacBoard ticTacBoard = new TicTacBoard();
+
         public TicTacBuilder rows(int rows) {
             ticTacBoard.rows = rows;
             // this = instancja siebie samego
             return this;
         }
+
         public TicTacBuilder cols(int cols) {
             ticTacBoard.cols = cols;
             return this;
         }
+
         public TicTacBuilder boardSymbols(String boardSymbols) {
             ticTacBoard.boardSymbols = boardSymbols;
             return this;
         }
+
         @Override
         public TicTacBoard build() {
             return ticTacBoard;

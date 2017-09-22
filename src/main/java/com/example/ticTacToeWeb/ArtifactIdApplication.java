@@ -6,9 +6,9 @@ import org.springframework.boot.system.ApplicationPidFileWriter;
 
 @SpringBootApplication
 public class ArtifactIdApplication {
-	public static void main(String[] args) {
-		SpringApplication springApplication = new SpringApplication(ArtifactIdApplication.class);
-		springApplication.addListeners(new ApplicationPidFileWriter("Test.file"));
-		springApplication.run(args);
-	}
+    public static void main(String[] args) {
+        SpringApplication springApplication = new SpringApplication(ArtifactIdApplication.class);
+        springApplication.addListeners(new ApplicationPidFileWriter("Test.file"));
+        springApplication.run(args);
+    }
 }
