@@ -26,6 +26,7 @@ $(document).ready(function() {
           });
           console.log(XOToWin);
           var model = { boardSymbols : XOToWin, rows : rows, cols: cols };
+
           $.ajax({
           headers: {
                     'Accept': 'application/json',
