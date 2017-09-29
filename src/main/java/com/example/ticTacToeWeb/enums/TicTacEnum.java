@@ -5,18 +5,15 @@ public enum TicTacEnum {
 
     private String ticToeSymbols;
 
-    @Override
-    public String toString() {
-        return "TicTacEnum{" +
-                "ticToeSymbols='" + ticToeSymbols + '\'' +
-                '}';
-    }
+
 
     TicTacEnum(String ticToeSymbols) {
         this.ticToeSymbols = ticToeSymbols;
     }
 
+
     public String getTicToeSymbols() {
+
         return ticToeSymbols;
     }
 }
